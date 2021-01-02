@@ -1,12 +1,10 @@
 import re
 
-
 def arithmetic_arranger(problems, option=False):
     firstLine = str()
     secondLine = str()
     thirdLine = str()
     fourthLine = str()
-    # There should be four spaces between each problem.
     spaceBetween = '    '
 
     if len(problems) > 5:
@@ -17,7 +15,6 @@ def arithmetic_arranger(problems, option=False):
         if re.search('[a-zA-Z]', p):
             return 'Error: Numbers must only contain digits.'
 
-        # take operands and operator from string problem
         firstOperand = re.findall('\\d+', p)[0]
         secondOperand = re.findall('\\d+', p)[1]
         operator = re.findall('\\+|-', p)[0]
@@ -27,7 +24,6 @@ def arithmetic_arranger(problems, option=False):
         if len(firstOperand) > 4 or len(secondOperand) > 4:
             return 'Error: Numbers cannot be more than four digits.'
 
-        # length of each problem
         if len(firstOperand) >= len(secondOperand):
             length = len(firstOperand) + 2
         else:
@@ -69,4 +65,5 @@ def arithmetic_arranger(problems, option=False):
         returnString = firstLine + '\n' + secondLine + '\n' + thirdLine + '\n'+fourthLine
     else:
         returnString = firstLine + '\n' + secondLine + '\n' + thirdLine
+        
     return returnString
